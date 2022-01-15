@@ -20,7 +20,7 @@ class CreatePeopleTable extends Migration
             $table->string('imdb_id', 10)->unique()->nullable();
             $table->date('birthday')->nullable();
             $table->date('deathday')->nullable();
-            $table->string('gender', 2)->nullable();
+            $table->unsignedSmallInteger('gender')->nullable();
             $table->text('biography')->nullable();
             $table->float('popularity')->nullable();
             $table->string('place_of_birth')->nullable();

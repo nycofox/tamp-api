@@ -9,6 +9,17 @@ class Movie extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'tmdb_last_scraped_at' => 'datetime'
+    ];
+
+    protected $guarded = [];
+
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     public function genres()
     {
         return $this->belongsToMany(Genre::class);

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGenresTable extends Migration
+class CreatePersonImageTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateGenresTable extends Migration
      */
     public function up()
     {
-        Schema::create('genres', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->primary();
-            $table->string('name');
-            $table->timestamp('tmdb_last_scraped_at')->nullable();
+        Schema::create('person_image', function (Blueprint $table) {
+            $table->foreignId('person_id');
+            $table->foreignId('image_id');
+            $table->primary(['person_id', 'image_id']);
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateGenresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('genres');
+        Schema::dropIfExists('person_image');
     }
 }

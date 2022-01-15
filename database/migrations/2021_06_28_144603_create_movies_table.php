@@ -33,6 +33,7 @@ class CreateMoviesTable extends Migration
             $table->foreignId('poster_id')->nullable();
             $table->unsignedBigInteger('budget')->nullable();
             $table->text('homepage')->nullable();
+            $table->timestamp('tmdb_last_scraped_at')->nullable();
             $table->timestamps();
         });
     }

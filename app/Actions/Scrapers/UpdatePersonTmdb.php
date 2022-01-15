@@ -31,6 +31,7 @@ class UpdatePersonTmdb
             'birthday' => $tmdb['birthday'] ?? null,
             'deathday' => $tmdb['deathday'] ?? null,
             'biography' => $tmdb['biography'] ?? null,
+            'gender' => $tmdb['gender'] ?? null,
             'homepage' => $tmdb['homepage'] ?? null,
             'place_of_birth' => $tmdb['place_of_birth'] ?? null,
             'popularity' => $tmdb['popularity'] ?? 0,

@@ -17,6 +17,11 @@ class Person extends Model
         'tmdb_last_scraped_at' => 'datetime'
     ];
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     protected $appends = [
         'age',
     ];

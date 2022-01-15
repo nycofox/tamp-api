@@ -10,5 +10,10 @@ class Image extends Model
 {
     use HasFactory, SoftDeletes;
 
+    protected $hidden = [
+        'created_at',
+        'updated_at'
+    ];
+
     protected $guarded = [];
 }
