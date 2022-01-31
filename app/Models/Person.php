@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Person extends Model
 {
@@ -24,6 +25,7 @@ class Person extends Model
 
     protected $appends = [
         'age',
+        'profile_path',
     ];
 
     protected $with = [
@@ -49,8 +51,18 @@ class Person extends Model
         return $this->birthday->age;
     }
 
+    public function getProfilePathAttribute(): string
+    {
+        return Storage::temporaryUrl($this->profile->path, now()->addMinute());
+    }
+
     public function aliases()
     {
         return $this->hasMany(Alias::class);
+    }
+
+    public function profile()
+    {
+        return $this->belongsTo(Image::class, 'profile_id', 'id');
     }
 }

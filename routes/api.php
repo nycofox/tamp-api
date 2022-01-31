@@ -18,5 +18,8 @@ use Illuminate\Support\Facades\Route;
 //    return $request->user();
 //});
 
-Route::get('people/popular/{limit?}', ['App\Http\Controllers\PeopleController', 'getPopular']);
-Route::get('people/birthday/{date?}/{limit?}', ['App\Http\Controllers\PeopleController', 'getBirthday']);
+Route::get('people/popular/{limit?}', ['App\Http\Controllers\Api\PeopleController', 'getPopular']);
+Route::get('people/birthday/{date?}/{limit?}', ['App\Http\Controllers\Api\PeopleController', 'getBirthday']);
+
+
+Route::get('movie/popular/{limit?}', ['App\Http\Controllers\Api\MovieController', 'getPopular']);

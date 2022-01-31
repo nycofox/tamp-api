@@ -9,4 +9,5 @@ return [
      * Api key
      */
     'api_key' => env('TMDB_API_KEY'),
+    'image_path' => env('TMDB_IMAGE_PATH'),
 ];
