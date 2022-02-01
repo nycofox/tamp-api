@@ -42,6 +42,10 @@ class UpdatePersonTmdb
             'profile_id' => $image->id ?? null,
         ]);
 
+        if($image) {
+            $person->images()->sync($image);
+        }
+
         foreach($tmdb['also_known_as'] as $alias)
         {
             Alias::updateOrCreate(['person_id' => $person->id, 'alias' => $alias]);

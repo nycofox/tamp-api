@@ -65,4 +65,9 @@ class Person extends Model
     {
         return $this->belongsTo(Image::class, 'profile_id', 'id');
     }
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'person_image')->withTimestamps();
+    }
 }
