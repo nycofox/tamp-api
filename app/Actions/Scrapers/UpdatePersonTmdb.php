@@ -43,7 +43,7 @@ class UpdatePersonTmdb
         ]);
 
         if($image) {
-            $person->images()->sync($image);
+            $person->profiles()->sync($image);
         }
 
         foreach($tmdb['also_known_as'] as $alias)

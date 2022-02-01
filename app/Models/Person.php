@@ -39,21 +39,20 @@ class Person extends Model
      */
     public function getAgeAttribute(): string
     {
-        if(!$this->birthday) {
+        if (!$this->birthday) {
             return 'Unknown';
         }
 
-        if($this->deathday)
-        {
+        if ($this->deathday) {
             return '(' . $this->birthday->year . ' - ' . $this->deathday->year . ')';
         }
 
         return $this->birthday->age;
     }
 
-    public function getProfilePathAttribute(): string
+    public function getProfilePathAttribute($minutes = 1): string
     {
-        return Storage::temporaryUrl($this->profile->path, now()->addMinute());
+        return $this->profile->url;
     }
 
     public function aliases()
@@ -66,7 +65,7 @@ class Person extends Model
         return $this->belongsTo(Image::class, 'profile_id', 'id');
     }
 
-    public function images()
+    public function profiles()
     {
         return $this->belongsToMany(Image::class, 'person_image')->withTimestamps();
     }
